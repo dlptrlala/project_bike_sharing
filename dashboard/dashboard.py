@@ -2,6 +2,7 @@ import streamlit as st
 import pandas as pd
 import matplotlib.pyplot as plt
 import seaborn as sns
+from pathlib import Path
 
 # =====================================================
 # Page Configuration
@@ -17,7 +18,10 @@ sns.set_style("whitegrid")
 # =====================================================
 # Load Data
 # =====================================================
-hour_df = pd.read_csv("hour.csv")
+# hour_df = pd.read_csv("hour.csv")
+BASE_DIR = Path(__file__).parent
+
+hour_df = pd.read_csv(BASE_DIR / "hour.csv")
 hour_df["dteday"] = pd.to_datetime(hour_df["dteday"])
 
 # =====================================================
